@@ -6,140 +6,291 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Raj MP Online</title>
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, sans-serif;
-                background: #f4f7fb;
-            }
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Raj MP Online Centre</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0d6efd, #084298);
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 15px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0d6efd, #084298);
+            color: white;
+            text-align: center;
+            padding: 75px 20px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #0d6efd;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 55px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #084298;
+            margin-bottom: 8px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 22px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #0d6efd;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .about {
+            background: white;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .whatsapp {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        @media (max-width: 700px) {
             header {
-                background: #0d6efd;
-                color: white;
-                padding: 25px;
                 text-align: center;
+                justify-content: center;
+                gap: 15px;
             }
 
-            header h1 {
-                margin: 0;
-                font-size: 35px;
+            nav a {
+                margin: 0 8px;
             }
 
-            header p {
-                margin: 8px 0 0;
-                font-size: 17px;
+            .hero h1 {
+                font-size: 34px;
             }
 
-            .container {
-                max-width: 1000px;
-                margin: 30px auto;
-                padding: 20px;
+            .hero p {
+                font-size: 16px;
             }
+        }
+    </style>
+</head>
 
-            .services {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                gap: 20px;
-            }
+<body>
 
-            .card {
-                background: white;
-                padding: 25px;
-                border-radius: 15px;
-                text-align: center;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.10);
-            }
+<header>
+    <div class="logo">Raj MP Online Centre</div>
 
-            .card h2 {
-                color: #0d6efd;
-            }
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-            .card p {
-                color: #555;
-            }
+<section class="hero" id="home">
+    <h1>Raj MP Online Centre</h1>
 
-            .btn {
-                display: inline-block;
-                background: #0d6efd;
-                color: white;
-                padding: 10px 20px;
-                border-radius: 8px;
-                text-decoration: none;
-            }
+    <p>आपकी Online Services का भरोसेमंद Digital Centre</p>
 
-            footer {
-                margin-top: 40px;
-                background: #222;
-                color: white;
-                text-align: center;
-                padding: 20px;
-            }
-        </style>
-    </head>
+    <a href="#services" class="btn">हमारी Services देखें</a>
+</section>
 
-    <body>
+<section class="section" id="services">
 
-        <header>
-            <h1>Raj MP Online</h1>
-            <p>Online Services & Digital Solutions</p>
-        </header>
+    <div class="section-title">
+        <h2>हमारी Services</h2>
+        <p>आपके लिए उपलब्ध प्रमुख Online Services</p>
+    </div>
 
-        <div class="container">
+    <div class="services">
 
-            <h2 style="text-align:center;">हमारी Services</h2>
-
-            <div class="services">
-
-                <div class="card">
-                    <h2>📄 Online Forms</h2>
-                    <p>Online form filling और application services.</p>
-                    <a class="btn" href="#">View Service</a>
-                </div>
-
-                <div class="card">
-                    <h2>📋 Resume / CV</h2>
-                    <p>Professional Resume और CV बनाने की सुविधा.</p>
-                    <a class="btn" href="#">Create CV</a>
-                </div>
-
-                <div class="card">
-                    <h2>📑 PDF Tools</h2>
-                    <p>PDF और document related services.</p>
-                    <a class="btn" href="#">Open Tools</a>
-                </div>
-
-                <div class="card">
-                    <h2>📸 Photo Tools</h2>
-                    <p>Passport photo और image editing services.</p>
-                    <a class="btn" href="#">Open Tools</a>
-                </div>
-
-                <div class="card">
-                    <h2>💼 Jobs</h2>
-                    <p>Job information और local opportunities.</p>
-                    <a class="btn" href="#">View Jobs</a>
-                </div>
-
-                <div class="card">
-                    <h2>📞 Contact</h2>
-                    <p>हमसे online contact करें.</p>
-                    <a class="btn" href="#">Contact Us</a>
-                </div>
-
-            </div>
+        <div class="card">
+            <div class="icon">📄</div>
+            <h3>Online Forms</h3>
+            <p>सरकारी एवं अन्य Online Forms भरने की सुविधा।</p>
         </div>
 
-        <footer>
-            © 2026 Raj MP Online | All Rights Reserved
-        </footer>
+        <div class="card">
+            <div class="icon">📋</div>
+            <h3>Resume / CV</h3>
+            <p>Professional Resume और CV बनाने की सुविधा।</p>
+        </div>
 
-    </body>
-    </html>
-    """
+        <div class="card">
+            <div class="icon">📑</div>
+            <h3>PDF Services</h3>
+            <p>PDF बनाने, बदलने और Document से जुड़ी सेवाएं।</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📸</div>
+            <h3>Photo Services</h3>
+            <p>Passport Size Photo और Photo Editing Services।</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">💼</div>
+            <h3>Job Services</h3>
+            <p>Job Forms और रोजगार से जुड़ी Online Services।</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🖨️</div>
+            <h3>Print & Document</h3>
+            <p>Document तैयार करने और Digital काम की सुविधा।</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section about" id="about">
+
+    <div class="section-title">
+        <h2>About Raj MP Online</h2>
+    </div>
+
+    <p>
+        Raj MP Online Centre एक Digital Service Centre है,
+        जहां आपको Online Forms, Resume/CV, PDF, Photo Editing,
+        Job Services और विभिन्न Online कार्यों में सहायता प्रदान की जाती है।
+    </p>
+
+</section>
+
+<section class="section contact" id="contact">
+
+    <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Online Service के लिए हमसे संपर्क करें</p>
+    </div>
+
+    <a class="whatsapp" href="https://wa.me/918827579512" target="_blank">
+        💬 WhatsApp पर संपर्क करें
+    </a>
+
+</section>
+
+<footer>
+    <p>© 2026 Raj MP Online Centre</p>
+    <p>All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
+"""
 
 if __name__ == "__main__":
     app.run(debug=True)
